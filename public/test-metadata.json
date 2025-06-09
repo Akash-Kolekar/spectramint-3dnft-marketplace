@@ -1,0 +1,21 @@
+{
+  "name": "Test 3D NFT",
+  "description": "A test 3D NFT for development and testing purposes. This NFT demonstrates the basic functionality of the SpectraMint marketplace.",
+  "image": "https://via.placeholder.com/400x400/6366f1/ffffff?text=Test+3D+NFT",
+  "animation_url": "https://via.placeholder.com/400x400/10b981/ffffff?text=3D+Model",
+  "attributes": [
+    {
+      "trait_type": "Type",
+      "value": "Test NFT"
+    },
+    {
+      "trait_type": "Environment",
+      "value": "Development"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    }
+  ],
+  "created_by": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266"
+}
