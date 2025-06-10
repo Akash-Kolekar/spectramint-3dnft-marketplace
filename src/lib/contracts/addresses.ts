@@ -4,17 +4,17 @@
 export const CONTRACT_ADDRESSES = {
   // Anvil local development
   31337: {
-    GLB3D_NFT: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-    NFT_MARKETPLACE: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    GLB3D_NFT: "0x5FbDB2315678afecb367f032d93F642f64180aa3" as `0x${string}`,
+    NFT_MARKETPLACE: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512" as `0x${string}`,
   },
   // Add other networks as needed
   // 1: { // Ethereum Mainnet
-  //   GLB3D_NFT: "",
-  //   NFT_MARKETPLACE: "",
+  //   GLB3D_NFT: "" as `0x${string}`,
+  //   NFT_MARKETPLACE: "" as `0x${string}`,
   // },
   // 11155111: { // Sepolia Testnet
-  //   GLB3D_NFT: "",
-  //   NFT_MARKETPLACE: "",
+  //   GLB3D_NFT: "" as `0x${string}`,
+  //   NFT_MARKETPLACE: "" as `0x${string}`,
   // },
 } as const;
 
@@ -24,9 +24,15 @@ export function getContractAddress(
   chainId: SupportedChainId,
   contract: "GLB3D_NFT" | "NFT_MARKETPLACE"
 ): `0x${string}` {
-  const address = CONTRACT_ADDRESSES[chainId]?.[contract];
-  if (!address || address === "0x0000000000000000000000000000000000000000") {
+  const networkContracts = CONTRACT_ADDRESSES[chainId];
+  if (!networkContracts) {
+    throw new Error(`Network ${chainId} not supported`);
+  }
+  
+  const address = networkContracts[contract];
+  if (!address) {
     throw new Error(`Contract ${contract} not deployed on chain ${chainId}`);
   }
-  return address as `0x${string}`;
+  
+  return address;
 }
