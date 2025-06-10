@@ -4,7 +4,7 @@ out = "out"
 libs = ["lib"]
 
 fs_permissions = [
-    { access = "write", path = "../src/lib/contract-addresses.ts" },
+    { access = "write", path = "../src/lib/contracts/addresses.ts" },
     { access = "write", path = "./deployments.env" },
 ]
 
